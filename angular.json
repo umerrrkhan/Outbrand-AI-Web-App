@@ -1,0 +1,24 @@
+{
+  "projects": {
+    "your-app-name": {
+      "architect": {
+        "build": {
+          "options": {
+            "scripts": [
+              "node_modules/ngx-webcam/bundles/ngx-webcam.umd.js",
+              "src/app/app.module.js",
+              "src/app/video-recording.component.js"
+            ],
+            "styles": [
+              "src/styles.css",
+              "src/app/app.component.css",
+              "src/app/video-recording.component.css"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+
+  

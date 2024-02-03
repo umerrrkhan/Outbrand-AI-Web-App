@@ -1,0 +1,33 @@
+<div>
+    <webcam
+      *ngIf="showWebcam"
+      [width]="640"
+      [height]="480"
+      [trigger]="isRecording"
+      (imageCapture)="handleImageCapture($event)"
+      (initError)="handleInitError($event)"
+      (webcamError)="handleWebcamError($event)"
+    ></webcam>
+  </div>
+  
+  <div>
+    <button onclick=handleStartRecording()>
+      Start Recording
+    </button>
+  </div>
+
+  <div>
+    <button onclick=handleStopRecording()>
+      Stop Recording
+    </button>
+  </div>
+  
+  <div *ngIf="recordedVideo.length > 0">
+    <h2>Record Video</h2>
+    <video controls width="640" height="480">
+      <ng-container *ngFor="let image of recordedVideo">
+        <source [src]="image.imageAsDataUrl" type="video/mp4" />
+      </ng-container>
+    </video>
+    <button (click)="recordedVideo = []">Clear Recorded Video</button>
+  </div>
